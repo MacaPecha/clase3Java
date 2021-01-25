@@ -1,15 +1,17 @@
 package Mañana;
 
 public class SortUtil {
-    public static <T> void ordenar(Precedable<T> arr[]){
-        for (int j = 0; j < arr.length; j++) {
-            for (int i = 0; i < arr.length - 1; i++) {
-                if(arr[i].precedeA((T) arr[i+1]) > 0){
-                    Precedable<T> aux = arr[i];
-                    arr[i] = arr[i+1];
-                    arr[i+1] = aux;
+    public static <T> Precedable<T>[] ordenar(Precedable<T> arr[]){
+        Precedable<T>[] nuevo = arr.clone();
+        for (int j = 0; j < nuevo.length; j++) {
+            for (int i = 0; i < nuevo.length - 1; i++) {
+                if(nuevo[i].precedeA((T) nuevo[i+1]) > 0){
+                    Precedable<T> aux = nuevo[i];
+                    nuevo[i] = nuevo[i+1];
+                    nuevo[i+1] = aux;
                 }
             }
         }
+        return nuevo;
     }
 }

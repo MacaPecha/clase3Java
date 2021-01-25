@@ -1,5 +1,7 @@
 package Mañana;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Persona p = new Persona("juan", 323);
@@ -24,29 +26,36 @@ public class Main {
         arr2[2] = c2;
         arr2[3] = c3;
 
-        System.out.println("personas");
+        System.out.println("---Personas---");
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
-        System.out.println("celulares");
+        System.out.println("---Celulares---");
         for (int i = 0; i < arr2.length; i++) {
             System.out.println(arr2[i]);
         }
 
-        SortUtil.ordenar(arr);
-        SortUtil.ordenar(arr2);
+        System.out.println("---Personas ordenado---");
+        Persona[] arrOrd = (Persona[]) SortUtil.ordenar(arr);
+        for (int i = 0; i < arrOrd.length; i++) {
+            System.out.println(arrOrd[i]);
+        }
+        System.out.println("---Celulares ordenado---");
+        Celular[] arr2Ord = (Celular[]) SortUtil.ordenar(arr2);
+        for (int i = 0; i < arr2Ord.length; i++) {
+            System.out.println(arr2Ord[i]);
+        }
 
-        System.out.println("personas ordenado");
+        System.out.println("---ORIGINALES---");
+//        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr2));
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
 
-        System.out.println("celulares ordenado");
         for (int i = 0; i < arr2.length; i++) {
             System.out.println(arr2[i]);
         }
-
-
 
     }
 }
